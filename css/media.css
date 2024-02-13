@@ -1,0 +1,20 @@
+
+@media (max-width: 1000px){
+    .main-wrapper h2 {
+        font-size: 3.75rem;
+        line-height: 1;
+        color: #fff;
+        font-weight: 600;
+        margin-top: -3rem;
+        margin-bottom: 0;
+    }
+    
+    .header {
+        display: flex;
+        gap: 0.25rem;
+        justify-content: space-between;
+        align-items: flex-start;  
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+}

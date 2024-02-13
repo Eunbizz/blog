@@ -3,40 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/index.css">
     <title>Docs</title>
 </head>
 <body>
     <div class="container">
         <div class="wrapper">
             <header class="header">
-                <a class="no-underline" href="/">
-                    <h2 class="text-3xl">EunBi</h2>
+                <a class="title" href="main.html">
+                    <h2>EunBi</h2>
                 </a>
-                <div class="gap-4">
-                    <a class="medium" href="/about">About</a>
-                    <a class="medium" href="/article">Article</a>
-                    <a class="medium" href="/docs">Docs</a>
+                <div class="pages">
+                    <a href="about.html">About</a>
+                    <a href="article.html">Article</a>
+                    <a href="docs.html" class="on">Docs</a>
                 </div>
             </header>
-            <hr class="mb-16">
-            <div class="m-auto">
+
+            <hr style="margin-bottom:4rem;">
+            <div class="docs-wrapper">
                 <div class="title-wrapper">
                     <h1>Docs
-                        <span class="orange"></span>
+                        <span class="orange-block"></span>
                     </h1>
                     <nav>
-                        <buttom class="btn">목차
+                        <buttom class="nav-btn" onclick="changePolyline()">목차
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                                <polyline points="6 9 12 15 18 9"></polyline>
+                                <polyline class="on" points="6 9 12 15 18 9"></polyline>
                             </svg>
                         </buttom>
                     </nav>
-                    <a class="underline" href="">GitHub</a>
-                    <hr class="mt-4">
+                    <a href="https://github.com/Eunbizz">GitHub</a>
+                    <hr style="margin-top:1rem;margin-bottom:3rem">
                 </div>
                 <div class="content-wrapper">
-                    <h2>컴퓨터 과학</h2>
+                    <h2 id="컴퓨터-과학">컴퓨터 과학</h2>
                     <h3>자료구조</h3>
                     <ul>
                         <li>
@@ -44,18 +45,84 @@
                         </li>
                     </ul>
                     <hr>
-                    <h2>프론트엔드</h2>
+                    <h2 id="백엔드">백엔드</h2>
+                    <h3>Node.js</h3>
+                    <ul>
+                        <li>
+                            <a href="">SNU M1</a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h2 id="프론트엔드">프론트엔드</h2>
+                    <h3>HTML</h3>
+                    <ul>
+                        <li>
+                            <a href="">SNU M1</a>
+                        </li>
+                    </ul>
+                    <h3>CSS</h3>
+                    <ul>
+                        <li>
+                            <a href="">SNU M1</a>
+                        </li>
+                    </ul>
+                    <h3>React</h3>
+                    <ul>
+                        <li>
+                            <a href="">SNU M1</a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h2 id="인공지능">인공지능</h2>
+                    <h3>선형대수</h3>
+                    <ul>
+                        <li>
+                            <a href="">SNU M1</a>
+                        </li>
+                    </ul>
+                    <hr>
+                    <h2 id="독서">독서</h2>
+                    <h3>자기관리론</h3>
+                    <ul>
+                        <li>
+                            <a href="">SNU M1</a>
+                        </li>
+                    </ul>
+                    <hr>
                 </div>
-                <hr class="mt-20">
-                <footer class="mt-4">
-                    <div class="items-center">
-                        <div class="gap-1">
-                            <a class="footer-link" href="/">EunBi</a>
+                <hr style="margin-top:5rem;">
+                <footer style="margin-top:1rem;margin-bottom:3rem;">
+                    <div>
+                        <div>
+                            <a class="footer-link" href="main.html">EunBi</a>
                         </div>
                     </div>
                 </footer>
             </div>
         </div>
     </div>
+    <script>
+        function changePolyline() {
+            const polyline = document.querySelector('.nav-btn polyline');
+            var points = polyline.getAttribute('points');
+
+            if (points === '6 9 12 15 18 9') {
+                polyline.setAttribute('points', '18 15 12 9 6 15');
+                const nav = document.querySelector('nav');
+                const ul = document.createElement('ul');
+                ul.classList.add('on');
+                nav.appendChild(ul);
+                ul.innerHTML = `
+                    <li><a href="#컴퓨터-과학">컴퓨터 과학</a></li>
+                    <li><a href="#백엔드">백엔드</a></li>
+                    <li><a href="#프론트엔드">프론트엔드</a></li>`;
+
+            } else {
+                polyline.setAttribute('points', '6 9 12 15 18 9');
+                const ul = document.querySelector('nav ul');
+                ul.remove();
+            }
+        }
+    </script>
 </body>
 </html>
